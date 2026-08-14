@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lukas Koranda — Warehouse Operations Consultant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f2a44;
+    --ink-2:#153a5c;
+    --line:#6fa8c9;
+    --paper:#f7f5ef;
+    --paper-2:#eeeae0;
+    --text:#132030;
+    --text-soft:#4c5a68;
+    --amber:#f2a73b;
+    --amber-deep:#c47f1d;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+  }
+  img,svg{max-width:100%;display:block;}
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    margin:0;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 28px;}
+  a{color:inherit;}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:20;
+    background:rgba(15,42,68,.96);
+    backdrop-filter:blur(4px);
+    color:#fff;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  header.nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:14px;padding-bottom:14px;
+  }
+  .nav-brand{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;
+    letter-spacing:.02em;
+    display:flex;align-items:center;gap:8px;
+  }
+  .nav-brand .dot{width:8px;height:8px;background:var(--amber);display:inline-block;}
+  nav.nav-links{display:flex;gap:26px;font-size:13.5px;}
+  nav.nav-links a{
+    text-decoration:none;color:#cfe0ec;font-family:'IBM Plex Mono',monospace;
+    letter-spacing:.03em;font-size:12.5px;text-transform:uppercase;
+  }
+  nav.nav-links a:hover{color:#fff;}
+  .btn{
+    display:inline-block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;letter-spacing:.03em;text-transform:uppercase;
+    padding:11px 20px;
+    border-radius:2px;
+    text-decoration:none;
+    border:1px solid var(--amber);
+    color:var(--ink);
+    background:var(--amber);
+    transition:opacity .15s;
+    white-space:nowrap;
+  }
+  .btn:hover{opacity:.86;}
+  .btn.ghost{
+    background:transparent;border-color:rgba(255,255,255,.4);color:#fff;
+  }
+  .btn.ghost:hover{border-color:#fff;opacity:1;}
+  .btn.dark{background:var(--ink);border-color:var(--ink);color:#fff;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:var(--ink);
+    color:#fff;
+    overflow:hidden;
+  }
+  .hero-grid{
+    position:absolute;inset:0;
+    background-image:linear-gradient(rgba(111,168,201,.14) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(111,168,201,.14) 1px, transparent 1px);
+    background-size:34px 34px;
+    mask-image:linear-gradient(to bottom, rgba(0,0,0,.9), transparent 92%);
+  }
+  .hero-inner{
+    position:relative;z-index:1;
+    padding:78px 0 46px;
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:40px;
+    align-items:center;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--amber);
+    display:flex;align-items:center;gap:9px;margin-bottom:16px;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--amber);}
+  .hero h1{
+    font-size:44px;line-height:1.08;font-weight:700;color:#fff;
+  }
+  .hero h1 em{color:var(--amber);font-style:normal;}
+  .hero p.lede{
+    margin-top:18px;font-size:16.5px;color:#cbd9e3;max-width:46ch;
+  }
+  .hero-ctas{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap;}
+  .stat-row{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:0;margin-top:44px;border-top:1px solid rgba(255,255,255,.14);
+    padding-top:20px;max-width:520px;
+  }
+  .stat-row div{padding-right:14px;}
+  .stat-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:#fff;}
+  .stat-label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:#9db2c1;margin-top:3px;}
+
+  .blueprint{
+    position:relative;
+  }
+  .blueprint-caption{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;
+    text-transform:uppercase;color:#7fa4bd;text-align:center;margin-top:8px;
+  }
+
+  /* ---------- SECTION SCAFFOLDING ---------- */
+  section{padding:76px 0;}
+  .section-head{max-width:640px;margin-bottom:44px;}
+  .section-head h2{font-size:30px;font-weight:700;}
+  .section-head p{color:var(--text-soft);margin-top:12px;font-size:15.5px;}
+
+  .dim-divider{
+    background:var(--paper-2);
+    border-top:1px solid #d9d3c4;
+    border-bottom:1px solid #d9d3c4;
+    padding:22px 0;
+  }
+  .dim-divider .wrap{
+    display:flex;align-items:center;gap:18px;
+  }
+  .dim-divider .tag{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;
+    letter-spacing:.06em;color:var(--ink);white-space:nowrap;
+  }
+  .dim-line{flex:1;height:1px;background:repeating-linear-gradient(to right, var(--ink) 0 6px, transparent 6px 12px);position:relative;}
+  .dim-line::before,.dim-line::after{
+    content:"";position:absolute;top:-4px;width:1px;height:9px;background:var(--ink);
+  }
+  .dim-line::before{left:0;}
+  .dim-line::after{right:0;}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:start;}
+  .about-grid p{color:var(--text-soft);font-size:15.5px;}
+  .about-grid p + p{margin-top:14px;}
+  .route{position:relative;padding-left:26px;}
+  .route::before{
+    content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;
+    background:repeating-linear-gradient(to bottom, var(--amber) 0 6px, transparent 6px 12px);
+  }
+  .route-item{position:relative;padding-bottom:26px;}
+  .route-item:last-child{padding-bottom:0;}
+  .route-item::before{
+    content:"";position:absolute;left:-26px;top:2px;width:11px;height:11px;
+    border-radius:50%;background:var(--ink);border:2px solid var(--amber);
+  }
+  .route-role{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15.5px;color:var(--ink);}
+  .route-meta{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8b8577;text-transform:uppercase;letter-spacing:.03em;margin-top:2px;}
+  .route-desc{font-size:14px;color:var(--text-soft);margin-top:6px;max-width:52ch;}
+
+  /* ---------- PRICING ---------- */
+  .price-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .price-card{
+    background:#fff;border:1px solid #e2ddd0;border-radius:3px;
+    padding:26px 22px;display:flex;flex-direction:column;gap:14px;
+    position:relative;
+  }
+  .price-card{
+  background:#fff;
+  border:1px solid var(--amber);
+  border-radius:3px;
+  padding:26px 22px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  position:relative;
+  box-shadow:0 6px 26px rgba(242,167,59,.16);
+}
+  .price-tier{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--text-soft);}
+  .price-size{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16.5px;color:var(--ink);}
+  .price-amount{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:36px;color:var(--ink);}
+  .price-amount span{font-size:15px;font-weight:500;color:var(--text-soft);}
+  .price-note{font-size:13px;color:var(--text-soft);}
+  .audit-footnote{
+    margin-top:18px;font-size:13.5px;color:var(--text-soft);
+    border-left:3px solid var(--text-soft);padding-left:14px;
+  }
+  .deliverable-list{margin-top:8px;}
+  .deliverable-list h3{font-size:16.5px;margin-bottom:12px;}
+  .deliverable-list ul{margin:0;padding-left:18px;color:var(--text-soft);font-size:14.5px;display:flex;flex-direction:column;gap:6px;}
+
+  /* ---------- IMPROVEMENT / SUCCESS FEE ---------- */
+  .success-block{
+    display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;
+  }
+  .quote-card{
+    background:var(--ink);color:#fff;border-radius:3px;padding:36px 32px;
+    position:relative;overflow:hidden;
+  }
+  .quote-card::before{
+    content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(111,168,201,.12) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(111,168,201,.12) 1px, transparent 1px);
+    background-size:26px 26px;
+  }
+  .quote-card .inner{position:relative;z-index:1;}
+  .quote-pct{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:56px;color:var(--amber);line-height:1;}
+  .quote-line{font-size:16px;margin-top:14px;color:#dbe6ee;max-width:34ch;}
+  .quote-sub{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9db2c1;margin-top:18px;letter-spacing:.03em;}
+  .steps{display:flex;flex-direction:column;gap:20px;}
+  .step{display:flex;gap:14px;}
+  .step-num{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:12px;
+    color:var(--amber-deep);border:1px solid var(--amber);border-radius:50%;
+    width:26px;height:26px;flex:none;display:flex;align-items:center;justify-content:center;
+  }
+  .step-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:var(--ink);}
+  .step-desc{font-size:13.8px;color:var(--text-soft);margin-top:3px;}
+
+  /* ---------- WHY / RATIONALE BAND ---------- */
+  .why{background:var(--ink-2);color:#fff;}
+  .why .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+  .why h2{color:#fff;font-size:26px;}
+  .why-col p{color:#cfe0ec;font-size:15px;}
+  .why-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-panel{
+    background:#fff;border:1px solid #e2ddd0;border-radius:3px;
+    padding:40px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;
+  }
+  .contact-list{display:flex;flex-direction:column;gap:14px;margin-top:20px;}
+  .contact-row{display:flex;align-items:center;gap:12px;font-size:15px;}
+  .contact-row .k{
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--text-soft);width:64px;flex:none;
+  }
+  .contact-cta{display:flex;flex-direction:column;gap:10px;}
+
+  footer{padding:30px 0;border-top:1px solid #e2ddd0;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--text-soft);flex-wrap:wrap;gap:8px;}
+  footer .mono{letter-spacing:.03em;}
+
+  @media (max-width:880px){
+    .hero-inner{grid-template-columns:1fr;padding-top:56px;}
+    .stat-row{grid-template-columns:repeat(3,1fr);max-width:none;}
+    .hero h1{font-size:32px;}
+    .about-grid,.success-block,.why .wrap,.contact-panel{grid-template-columns:1fr;}
+    .price-cards{grid-template-columns:1fr;}
+    nav.nav-links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="nav-brand"><span class="dot"></span>LUKAS KORANDA — OPS CONSULTING</div>
+    <nav class="nav-links">
+      <a href="#track-record">Track record</a>
+      <a href="#audit">Audit</a>
+      <a href="#improvement">Improvement</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn" href="#contact">Request a quote</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow">Warehouse &amp; Operations Consulting</div>
+      <h1>Find what's costing your operation money — <em>then fix it.</em></h1>
+      <p class="lede">I audit warehouse and depot operations, flag exactly where efficiency is leaking, and — if you want — lead the improvement project myself. You only pay for that second part if it saves you money.</p>
+      <div class="hero-ctas">
+        <a class="btn" href="#audit">See audit pricing</a>
+        <a class="btn ghost" href="#improvement">How the success fee works</a>
+      </div>
+      <div class="stat-row">
+        <div>
+          <div class="stat-num">10+ yrs</div>
+          <div class="stat-label">Warehouse &amp; depot ops</div>
+        </div>
+        <div>
+          <div class="stat-num">300+</div>
+          <div class="stat-label">Staff led at peak</div>
+        </div>
+        <div>
+          <div class="stat-num">5</div>
+          <div class="stat-label">Strong Brands: Amazon, Lidl, CEVA, Packeta, Hopi</div>
+        </div>
+      </div>
+    </div>
+    <div class="blueprint">
+      <svg viewBox="0 0 560 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M20 0H0V20" fill="none" stroke="#6fa8c9" stroke-width="0.6" opacity="0.4"/>
+          </pattern>
+        </defs>
+        <rect x="40" y="40" width="480" height="300" fill="url(#grid)" stroke="#8fbdd7" stroke-width="1.4"/>
+        <!-- racking rows -->
+        <g stroke="#8fbdd7" stroke-width="1.2" opacity="0.85">
+          <rect x="66" y="66" width="140" height="18" fill="none"/>
+          <rect x="66" y="98" width="140" height="18" fill="none"/>
+          <rect x="66" y="130" width="140" height="18" fill="none"/>
+          <rect x="66" y="162" width="140" height="18" fill="none"/>
+          <rect x="66" y="194" width="140" height="18" fill="none"/>
+          <rect x="242" y="66" width="140" height="18" fill="none"/>
+          <rect x="242" y="98" width="140" height="18" fill="none"/>
+          <rect x="242" y="130" width="140" height="18" fill="none"/>
+          <rect x="242" y="162" width="140" height="18" fill="none"/>
+          <rect x="242" y="194" width="140" height="18" fill="none"/>
+        </g>
+        <!-- office / staging -->
+        <rect x="418" y="66" width="78" height="80" fill="none" stroke="#f2a73b" stroke-width="1.4"/>
+        <text x="457" y="112" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#f2a73b">OFFICE</text>
+        <!-- dock doors -->
+        <g stroke="#f2a73b" stroke-width="2.4">
+          <line x1="90" y1="340" x2="112" y2="340"/>
+          <line x1="130" y1="340" x2="152" y2="340"/>
+          <line x1="170" y1="340" x2="192" y2="340"/>
+          <line x1="210" y1="340" x2="232" y2="340"/>
+        </g>
+        <text x="161" y="362" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#f2a73b" letter-spacing="1">DOCK DOORS</text>
+        <!-- dimension line top -->
+        <line x1="40" y1="24" x2="520" y2="24" stroke="#cfe0ec" stroke-width="1"/>
+        <line x1="40" y1="18" x2="40" y2="30" stroke="#cfe0ec" stroke-width="1"/>
+        <line x1="520" y1="18" x2="520" y2="30" stroke="#cfe0ec" stroke-width="1"/>
+        <text x="280" y="16" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#cfe0ec">142 m</text>
+        <!-- dimension line side -->
+        <line x1="18" y1="40" x2="18" y2="340" stroke="#cfe0ec" stroke-width="1"/>
+        <line x1="12" y1="40" x2="24" y2="40" stroke="#cfe0ec" stroke-width="1"/>
+        <line x1="12" y1="340" x2="24" y2="340" stroke="#cfe0ec" stroke-width="1"/>
+        <text x="10" y="192" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#cfe0ec" transform="rotate(-90 10 192)">98 m</text>
+      </svg>
+      <div class="blueprint-caption">Illustrative site plan — every audit starts with a walk like this one</div>
+    </div>
+  </div>
+</section>
+
+<section id="track-record">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Operations experience, not theory</h2>
+      <p>Every recommendation I make has been tested against my own P&amp;L and KPI board first — not read in a case study.</p>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>I've spent the last decade inside warehouse and last-mile operations — running shifts, then depots, then whole regions — across e-commerce, retail and 3PL environments. I've built the KPI boards, rewritten the SOPs, and stood in the aisle at 6am when a layout change didn't work the way the spreadsheet said it would.</p>
+        <p>That's the perspective I bring into a consulting engagement: I know which "quick wins" are real and which ones just move the problem to a different shift. My background in competitive sport also means I'm allergic to leaving performance on the table — if there's a gap between current and possible, I want to find it.</p>
+      </div>
+      <div class="route">
+        <div class="route-item">
+          <div class="route-role">Regional Operations Manager — Packeta Slovakia</div>
+        </div>
+        <div class="route-item">
+          <div class="route-role">Operations Manager — CEVA Logistics</div>
+
+        </div>
+        <div class="route-item">
+          <div class="route-role">Warehouse Operations Manager — Lidl Slovakia</div>
+
+        </div>
+        <div class="route-item">
+          <div class="route-role">Area Manager — Amazon</div>
+
+        </div>
+        <div class="route-item">
+          <div class="route-role">Operations Logistics Manager — Hopi</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="dim-divider">
+  <div class="wrap">
+    <span class="tag mono">01 — THE AUDIT</span>
+    <div class="dim-line"></div>
+  </div>
+</div>
+
+<section id="audit">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>A structured audit of your operation</h2>
+      <p>I walk the floor, review your data and your process against what I've seen work at scale, and hand you a clear, prioritised report — no vague "recommendations," just findings tied to specific corrective actions.</p>
+    </div>
+
+    <div class="price-cards">
+      <div class="price-card">
+        <div class="price-tier">Tier 1</div>
+        <div class="price-size">Up to 10,000 m²</div>
+        <div class="price-amount">€350</div>
+        <div class="price-note">Fixed fee for the full audit</div>
+      </div>
+      <div class="price-card mid">
+        <div class="price-tier">Tier 2</div>
+        <div class="price-size">10,000 – 30,000 m²</div>
+        <div class="price-amount">€450</div>
+        <div class="price-note">Fixed fee for the full audit</div>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Tier 3</div>
+        <div class="price-size">Above 30,000 m²</div>
+        <div class="price-amount">€600</div>
+        <div class="price-note">Fixed fee for the full audit</div>
+      </div>
+    </div>
+
+    <div class="audit-footnote">
+      Pricing is based on operational floor area and covers the on-site audit and written report. Travel costs are added on top, and accommodation may be added for sites that require an overnight stay.
+    </div>
+
+    <div class="deliverable-list">
+      <h3>What you get</h3>
+      <ul>
+        <li>An on-site walkthrough of your operation, layout and workflow</li>
+        <li>Review of relevant KPIs, throughput and staffing data</li>
+        <li>A written findings report ranking issues by impact</li>
+        <li>Specific, actionable corrective steps for each finding — not general advice</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="dim-divider">
+  <div class="wrap">
+    <span class="tag mono">02 — THE IMPROVEMENT</span>
+    <div class="dim-line"></div>
+  </div>
+</div>
+
+<section id="improvement">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>If you want me to lead the fix, too</h2>
+      <p>Some findings are worth implementing properly, not just handing to an internal team already stretched thin. I can lead that project myself — and I only get paid if it actually saves you money.</p>
+    </div>
+    <div class="success-block">
+      <div class="quote-card">
+        <div class="inner">
+          <div class="quote-pct">15%</div>
+          <div class="quote-line">of the annual savings I prove out — charged only once, after the fact.</div>
+          <div class="quote-sub">NO PROVEN SAVINGS → NO FEE. NOT A DAY RATE, NOT A RETAINER.</div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <div class="step-title">We agree the baseline</div>
+            <div class="step-desc">Before starting, we fix the current-state numbers the improvement will be measured against.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <div class="step-title">I lead the implementation</div>
+            <div class="step-desc">Working with your team on the ground to put the corrective actions into practice.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <div class="step-title">We measure the result</div>
+            <div class="step-desc">Savings are verified against the agreed baseline over an agreed period.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div>
+            <div class="step-title">You pay 15% of what's proven — or nothing</div>
+            <div class="step-desc">If the numbers don't move, the project has cost you nothing beyond the initial audit.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <div class="why-col">
+      <div class="why-tag">Why structured this way</div>
+      <h2>One paid step. One free-if-it-fails step.</h2>
+    </div>
+    <div class="why-col">
+      <p>The audit carries a fee because it takes real time on-site and produces a concrete deliverable regardless of what happens next — that work has value whether or not you act on it.</p>
+      <p>The improvement work is priced differently on purpose. I want to be judged on results, not hours booked. If I lead a project and the savings don't materialise, you don't pay for my time — that risk sits with me, not you.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-panel">
+      <div>
+        <div class="eyebrow" style="color:var(--amber-deep);">Get started</div>
+        <h2 style="font-size:26px;">Tell me the size of the site and what's bothering you about it</h2>
+        <p style="color:var(--text-soft);margin-top:10px;font-size:15px;">A short email with your operational floor area and location is enough to get a quote back, including travel.</p>
+        <div class="contact-list">
+          <div class="contact-row"><span class="k mono">Email</span> <a href="mailto:lukoranda@gmail.com">lukoranda@gmail.com</a></div>
+          <div class="contact-row"><span class="k mono">Phone</span> <a href="tel:+421915703402">+421 915 703 402</a></div>
+        </div>
+      </div>
+      <div class="contact-cta">
+        <a class="btn dark" href="mailto:lukoranda@gmail.com?subject=Operations%20audit%20enquiry&body=Site%20location%3A%0AApprox.%20floor%20area%20(m%C2%B2)%3A%0AWhat%20I'd%20like%20looked%20at%3A%0A">Email for a quote</a>
+        <a class="btn ghost" style="border-color:#d9d3c4;color:var(--ink);" href="tel:+421915703402">Call instead</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="mono">© <span id="yr"></span> Lukas Koranda — Warehouse Operations Consulting</div>
+    <div class="mono">Based in Slovakia · Available for on-site audits across CEE</div>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
