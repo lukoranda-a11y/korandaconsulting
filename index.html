@@ -63,6 +63,15 @@
     letter-spacing:.03em;font-size:12.5px;text-transform:uppercase;
   }
   nav.nav-links a:hover{color:#fff;}
+  .nav-right{display:flex;align-items:center;gap:14px;}
+  .lang-switch{display:flex;gap:2px;background:rgba(255,255,255,.08);border-radius:3px;padding:2px;}
+  .lang-switch button{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em;
+    background:transparent;border:none;color:#9db2c1;padding:5px 8px;border-radius:2px;
+    cursor:pointer;transition:background .15s,color .15s;
+  }
+  .lang-switch button.active{background:var(--amber);color:var(--ink);font-weight:600;}
+  .lang-switch button:not(.active):hover{color:#fff;}
   .btn{
     display:inline-block;
     font-family:'IBM Plex Mono',monospace;
@@ -184,11 +193,6 @@
   /* ---------- PRICING ---------- */
   .price-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
   .price-card{
-    background:#fff;border:1px solid #e2ddd0;border-radius:3px;
-    padding:26px 22px;display:flex;flex-direction:column;gap:14px;
-    position:relative;
-  }
-  .price-card{
   background:#fff;
   border:1px solid var(--amber);
   border-radius:3px;
@@ -280,12 +284,19 @@
   <div class="wrap">
     <div class="nav-brand"><span class="dot"></span>LUKAS KORANDA — OPS CONSULTING</div>
     <nav class="nav-links">
-      <a href="#track-record">Track record</a>
-      <a href="#audit">Audit</a>
-      <a href="#improvement">Improvement</a>
-      <a href="#contact">Contact</a>
+      <a href="#track-record" data-i18n="nav_track">Track record</a>
+      <a href="#audit" data-i18n="nav_audit">Audit</a>
+      <a href="#improvement" data-i18n="nav_improve">Improvement</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
     </nav>
-    <a class="btn" href="#contact">Request a quote</a>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button type="button" data-lang="sk" class="active">SK</button>
+        <button type="button" data-lang="cz">CZ</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a class="btn" href="#contact" data-i18n="nav_cta">Request a quote</a>
+    </div>
   </div>
 </header>
 
@@ -293,25 +304,25 @@
   <div class="hero-grid"></div>
   <div class="wrap hero-inner">
     <div>
-      <div class="eyebrow">Warehouse &amp; Operations Consulting</div>
-      <h1>Find what's costing your operation money — <em>then fix it.</em></h1>
-      <p class="lede">I audit warehouse and depot operations, flag exactly where efficiency is leaking, and — if you want — lead the improvement project myself. You only pay for that second part if it saves you money.</p>
+      <div class="eyebrow" data-i18n="hero_eyebrow">Warehouse &amp; Operations Consulting</div>
+      <h1 data-i18n="hero_h1">Find what's costing your operation money — <em>then fix it.</em></h1>
+      <p class="lede" data-i18n="hero_lede">I audit warehouse and depot operations, flag exactly where efficiency is leaking, and — if you want — lead the improvement project myself. You only pay for that second part if it saves you money.</p>
       <div class="hero-ctas">
-        <a class="btn" href="#audit">See audit pricing</a>
-        <a class="btn ghost" href="#improvement">How the success fee works</a>
+        <a class="btn" href="#audit" data-i18n="hero_cta1">See audit pricing</a>
+        <a class="btn ghost" href="#improvement" data-i18n="hero_cta2">How the success fee works</a>
       </div>
       <div class="stat-row">
         <div>
-          <div class="stat-num">10+ yrs</div>
-          <div class="stat-label">Warehouse &amp; depot ops</div>
+          <div class="stat-num" data-i18n="stat1_num">10+ yrs</div>
+          <div class="stat-label" data-i18n="stat1_label">Warehouse &amp; depot ops</div>
         </div>
         <div>
           <div class="stat-num">300+</div>
-          <div class="stat-label">Staff led at peak</div>
+          <div class="stat-label" data-i18n="stat2_label">Staff led at peak</div>
         </div>
         <div>
           <div class="stat-num">5</div>
-          <div class="stat-label">Strong Brands: Amazon, Lidl, CEVA, Packeta, Hopi</div>
+          <div class="stat-label" data-i18n="stat3_label">Strong Brands: Amazon, Lidl, CEVA, Packeta, Hopi</div>
         </div>
       </div>
     </div>
@@ -358,7 +369,7 @@
         <line x1="12" y1="340" x2="24" y2="340" stroke="#cfe0ec" stroke-width="1"/>
         <text x="10" y="192" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#cfe0ec" transform="rotate(-90 10 192)">98 m</text>
       </svg>
-      <div class="blueprint-caption">Illustrative site plan — every audit starts with a walk like this one</div>
+      <div class="blueprint-caption" data-i18n="blueprint_caption">Illustrative site plan — every audit starts with a walk like this one</div>
     </div>
   </div>
 </section>
@@ -366,32 +377,32 @@
 <section id="track-record">
   <div class="wrap">
     <div class="section-head">
-      <h2>Operations experience, not theory</h2>
-      <p>Every recommendation I make has been tested against my own P&amp;L and KPI board first — not read in a case study.</p>
+      <h2 data-i18n="track_h2">Operations experience, not theory</h2>
+      <p data-i18n="track_p">Every recommendation I make has been tested against my own P&amp;L and KPI board first — not read in a case study.</p>
     </div>
     <div class="about-grid">
       <div>
-        <p>I've spent the last decade inside warehouse and last-mile operations — running shifts, then depots, then whole regions — across e-commerce, retail and 3PL environments. I've built the KPI boards, rewritten the SOPs, and stood in the aisle at 6am when a layout change didn't work the way the spreadsheet said it would.</p>
-        <p>That's the perspective I bring into a consulting engagement: I know which "quick wins" are real and which ones just move the problem to a different shift. My background in competitive sport also means I'm allergic to leaving performance on the table — if there's a gap between current and possible, I want to find it.</p>
+        <p data-i18n="about_p1">I've spent the last decade inside warehouse and last-mile operations — running shifts, then depots, then whole regions — across e-commerce, retail and 3PL environments. I've built the KPI boards, rewritten the SOPs, and stood in the aisle at 6am when a layout change didn't work the way the spreadsheet said it would.</p>
+        <p data-i18n="about_p2">That's the perspective I bring into a consulting engagement: I know which "quick wins" are real and which ones just move the problem to a different shift. My background in competitive sport also means I'm allergic to leaving performance on the table — if there's a gap between current and possible, I want to find it.</p>
       </div>
       <div class="route">
         <div class="route-item">
-          <div class="route-role">Regional Operations Manager — Packeta Slovakia</div>
+          <div class="route-role" data-i18n="route1">Regional Operations Manager — Packeta Slovakia</div>
         </div>
         <div class="route-item">
-          <div class="route-role">Operations Manager — CEVA Logistics</div>
+          <div class="route-role" data-i18n="route2">Operations Manager — CEVA Logistics</div>
 
         </div>
         <div class="route-item">
-          <div class="route-role">Warehouse Operations Manager — Lidl Slovakia</div>
+          <div class="route-role" data-i18n="route3">Warehouse Operations Manager — Lidl Slovakia</div>
 
         </div>
         <div class="route-item">
-          <div class="route-role">Area Manager — Amazon</div>
+          <div class="route-role" data-i18n="route4">Area Manager — Amazon</div>
 
         </div>
         <div class="route-item">
-          <div class="route-role">Operations Logistics Manager — Hopi</div>
+          <div class="route-role" data-i18n="route5">Operations Logistics Manager — Hopi</div>
 
         </div>
       </div>
@@ -401,7 +412,7 @@
 
 <div class="dim-divider">
   <div class="wrap">
-    <span class="tag mono">01 — THE AUDIT</span>
+    <span class="tag mono" data-i18n="audit_tag">01 — THE AUDIT</span>
     <div class="dim-line"></div>
   </div>
 </div>
@@ -409,42 +420,42 @@
 <section id="audit">
   <div class="wrap">
     <div class="section-head">
-      <h2>A structured audit of your operation</h2>
-      <p>I walk the floor, review your data and your process against what I've seen work at scale, and hand you a clear, prioritised report — no vague "recommendations," just findings tied to specific corrective actions.</p>
+      <h2 data-i18n="audit_h2">A structured audit of your operation</h2>
+      <p data-i18n="audit_p">I walk the floor, review your data and your process against what I've seen work at scale, and hand you a clear, prioritised report — no vague "recommendations," just findings tied to specific corrective actions.</p>
     </div>
 
     <div class="price-cards">
       <div class="price-card">
-        <div class="price-tier">Tier 1</div>
-        <div class="price-size">Up to 10,000 m²</div>
+        <div class="price-tier"><span data-i18n="tierWord">Tier</span> 1</div>
+        <div class="price-size" data-i18n="size1">Up to 10,000 m²</div>
         <div class="price-amount">€350</div>
-        <div class="price-note">Fixed fee for the full audit</div>
+        <div class="price-note" data-i18n="priceNote">Fixed fee for the full audit</div>
       </div>
       <div class="price-card mid">
-        <div class="price-tier">Tier 2</div>
-        <div class="price-size">10,000 – 30,000 m²</div>
+        <div class="price-tier"><span data-i18n="tierWord">Tier</span> 2</div>
+        <div class="price-size" data-i18n="size2">10,000 – 30,000 m²</div>
         <div class="price-amount">€450</div>
-        <div class="price-note">Fixed fee for the full audit</div>
+        <div class="price-note" data-i18n="priceNote">Fixed fee for the full audit</div>
       </div>
       <div class="price-card">
-        <div class="price-tier">Tier 3</div>
-        <div class="price-size">Above 30,000 m²</div>
+        <div class="price-tier"><span data-i18n="tierWord">Tier</span> 3</div>
+        <div class="price-size" data-i18n="size3">Above 30,000 m²</div>
         <div class="price-amount">€600</div>
-        <div class="price-note">Fixed fee for the full audit</div>
+        <div class="price-note" data-i18n="priceNote">Fixed fee for the full audit</div>
       </div>
     </div>
 
-    <div class="audit-footnote">
+    <div class="audit-footnote" data-i18n="audit_footnote">
       Pricing is based on operational floor area and covers the on-site audit and written report. Travel costs are added on top, and accommodation may be added for sites that require an overnight stay.
     </div>
 
     <div class="deliverable-list">
-      <h3>What you get</h3>
+      <h3 data-i18n="deliverables_h3">What you get</h3>
       <ul>
-        <li>An on-site walkthrough of your operation, layout and workflow</li>
-        <li>Review of relevant KPIs, throughput and staffing data</li>
-        <li>A written findings report ranking issues by impact</li>
-        <li>Specific, actionable corrective steps for each finding — not general advice</li>
+        <li data-i18n="del1">An on-site walkthrough of your operation, layout and workflow</li>
+        <li data-i18n="del2">Review of relevant KPIs, throughput and staffing data</li>
+        <li data-i18n="del3">A written findings report ranking issues by impact</li>
+        <li data-i18n="del4">Specific, actionable corrective steps for each finding — not general advice</li>
       </ul>
     </div>
   </div>
@@ -452,7 +463,7 @@
 
 <div class="dim-divider">
   <div class="wrap">
-    <span class="tag mono">02 — THE IMPROVEMENT</span>
+    <span class="tag mono" data-i18n="improve_tag">02 — THE IMPROVEMENT</span>
     <div class="dim-line"></div>
   </div>
 </div>
@@ -460,44 +471,44 @@
 <section id="improvement">
   <div class="wrap">
     <div class="section-head">
-      <h2>If you want me to lead the fix, too</h2>
-      <p>Some findings are worth implementing properly, not just handing to an internal team already stretched thin. I can lead that project myself — and I only get paid if it actually saves you money.</p>
+      <h2 data-i18n="improve_h2">If you want me to lead the fix, too</h2>
+      <p data-i18n="improve_p">Some findings are worth implementing properly, not just handing to an internal team already stretched thin. I can lead that project myself — and I only get paid if it actually saves you money.</p>
     </div>
     <div class="success-block">
       <div class="quote-card">
         <div class="inner">
           <div class="quote-pct">15%</div>
-          <div class="quote-line">of the annual savings I prove out — charged only once, after the fact.</div>
-          <div class="quote-sub">NO PROVEN SAVINGS → NO FEE. NOT A DAY RATE, NOT A RETAINER.</div>
+          <div class="quote-line" data-i18n="quote_line">of the annual savings I prove out — charged only once, after the fact.</div>
+          <div class="quote-sub" data-i18n="quote_sub">NO PROVEN SAVINGS → NO FEE. NOT A DAY RATE, NOT A RETAINER.</div>
         </div>
       </div>
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
           <div>
-            <div class="step-title">We agree the baseline</div>
-            <div class="step-desc">Before starting, we fix the current-state numbers the improvement will be measured against.</div>
+            <div class="step-title" data-i18n="step1_t">We agree the baseline</div>
+            <div class="step-desc" data-i18n="step1_d">Before starting, we fix the current-state numbers the improvement will be measured against.</div>
           </div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
           <div>
-            <div class="step-title">I lead the implementation</div>
-            <div class="step-desc">Working with your team on the ground to put the corrective actions into practice.</div>
+            <div class="step-title" data-i18n="step2_t">I lead the implementation</div>
+            <div class="step-desc" data-i18n="step2_d">Working with your team on the ground to put the corrective actions into practice.</div>
           </div>
         </div>
         <div class="step">
           <div class="step-num">3</div>
           <div>
-            <div class="step-title">We measure the result</div>
-            <div class="step-desc">Savings are verified against the agreed baseline over an agreed period.</div>
+            <div class="step-title" data-i18n="step3_t">We measure the result</div>
+            <div class="step-desc" data-i18n="step3_d">Savings are verified against the agreed baseline over an agreed period.</div>
           </div>
         </div>
         <div class="step">
           <div class="step-num">4</div>
           <div>
-            <div class="step-title">You pay 15% of what's proven — or nothing</div>
-            <div class="step-desc">If the numbers don't move, the project has cost you nothing beyond the initial audit.</div>
+            <div class="step-title" data-i18n="step4_t">You pay 15% of what's proven — or nothing</div>
+            <div class="step-desc" data-i18n="step4_d">If the numbers don't move, the project has cost you nothing beyond the initial audit.</div>
           </div>
         </div>
       </div>
@@ -508,12 +519,12 @@
 <section class="why">
   <div class="wrap">
     <div class="why-col">
-      <div class="why-tag">Why structured this way</div>
-      <h2>One paid step. One free-if-it-fails step.</h2>
+      <div class="why-tag" data-i18n="why_tag">Why structured this way</div>
+      <h2 data-i18n="why_h2">One paid step. One free-if-it-fails step.</h2>
     </div>
     <div class="why-col">
-      <p>The audit carries a fee because it takes real time on-site and produces a concrete deliverable regardless of what happens next — that work has value whether or not you act on it.</p>
-      <p>The improvement work is priced differently on purpose. I want to be judged on results, not hours booked. If I lead a project and the savings don't materialise, you don't pay for my time — that risk sits with me, not you.</p>
+      <p data-i18n="why_p1">The audit carries a fee because it takes real time on-site and produces a concrete deliverable regardless of what happens next — that work has value whether or not you act on it.</p>
+      <p data-i18n="why_p2">The improvement work is priced differently on purpose. I want to be judged on results, not hours booked. If I lead a project and the savings don't materialise, you don't pay for my time — that risk sits with me, not you.</p>
     </div>
   </div>
 </section>
@@ -522,17 +533,17 @@
   <div class="wrap">
     <div class="contact-panel">
       <div>
-        <div class="eyebrow" style="color:var(--amber-deep);">Get started</div>
-        <h2 style="font-size:26px;">Tell me the size of the site and what's bothering you about it</h2>
-        <p style="color:var(--text-soft);margin-top:10px;font-size:15px;">A short email with your operational floor area and location is enough to get a quote back, including travel.</p>
+        <div class="eyebrow" style="color:var(--amber-deep);" data-i18n="contact_eyebrow">Get started</div>
+        <h2 style="font-size:26px;" data-i18n="contact_h2">Tell me the size of the site and what's bothering you about it</h2>
+        <p style="color:var(--text-soft);margin-top:10px;font-size:15px;" data-i18n="contact_p">A short email with your operational floor area and location is enough to get a quote back, including travel.</p>
         <div class="contact-list">
-          <div class="contact-row"><span class="k mono">Email</span> <a href="mailto:lukoranda@gmail.com">lukoranda@gmail.com</a></div>
-          <div class="contact-row"><span class="k mono">Phone</span> <a href="tel:+421915703402">+421 915 703 402</a></div>
+          <div class="contact-row"><span class="k mono" data-i18n="label_email">Email</span> <a href="mailto:lukoranda@gmail.com">lukoranda@gmail.com</a></div>
+          <div class="contact-row"><span class="k mono" data-i18n="label_phone">Phone</span> <a href="tel:+421915703402">+421 915 703 402</a></div>
         </div>
       </div>
       <div class="contact-cta">
-        <a class="btn dark" href="mailto:lukoranda@gmail.com?subject=Operations%20audit%20enquiry&body=Site%20location%3A%0AApprox.%20floor%20area%20(m%C2%B2)%3A%0AWhat%20I'd%20like%20looked%20at%3A%0A">Email for a quote</a>
-        <a class="btn ghost" style="border-color:#d9d3c4;color:var(--ink);" href="tel:+421915703402">Call instead</a>
+        <a class="btn dark" id="emailBtn" href="mailto:lukoranda@gmail.com?subject=Operations%20audit%20enquiry&body=Site%20location%3A%0AApprox.%20floor%20area%20(m%C2%B2)%3A%0AWhat%20I'd%20like%20looked%20at%3A%0A" data-i18n="btn_email">Email for a quote</a>
+        <a class="btn ghost" style="border-color:#d9d3c4;color:var(--ink);" href="tel:+421915703402" data-i18n="btn_call">Call instead</a>
       </div>
     </div>
   </div>
@@ -540,11 +551,202 @@
 
 <footer>
   <div class="wrap">
-    <div class="mono">© <span id="yr"></span> Lukas Koranda — Warehouse Operations Consulting</div>
-    <div class="mono">Based in Slovakia · Available for on-site audits across CEE</div>
+    <div class="mono">© <span id="yr"></span> Lukas Koranda — <span data-i18n="footer1">Warehouse Operations Consulting</span></div>
+    <div class="mono" data-i18n="footer2">Based in Slovakia · Available for on-site audits across CEE</div>
   </div>
 </footer>
 
-<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+const dict = {
+  sk: {
+    nav_track:"Skúsenosti", nav_audit:"Audit", nav_improve:"Zlepšenie procesov", nav_contact:"Kontakt", nav_cta:"Vyžiadať ponuku",
+    hero_eyebrow:"Poradenstvo pre sklady a prevádzky",
+    hero_h1:'Nájdem, čo vašu prevádzku stojí peniaze — <em>a napravím to.</em>',
+    hero_lede:"Robím audit skladových a depotových prevádzok, presne označím, kde uniká efektivita, a ak chcete, projekt zlepšenia môžem viesť aj ja osobne. Za túto druhú časť platíte len vtedy, ak vám naozaj ušetrí peniaze.",
+    hero_cta1:"Cenník auditu", hero_cta2:"Ako funguje provízia za úspech",
+    stat1_num:"10+ rokov", stat1_label:"Prax v skladoch a depách",
+    stat2_label:"Ľudí vo vedení naraz",
+    stat3_label:"Silné značky: Amazon, Lidl, CEVA, Packeta, Hopi",
+    track_h2:"Prevádzkové skúsenosti, nie teória",
+    track_p:"Každé odporúčanie, ktoré dám, som si najprv overil na vlastnom P&amp;L a KPI tabuli — nevyčítal som ho zo štúdie.",
+    about_p1:'Posledných desať rokov som strávil v skladových a last-mile prevádzkach — najprv na zmenách, potom v depách, neskôr v celých regiónoch — v e-commerce, retailovom aj 3PL prostredí. Staval som KPI tabule, prepisoval SOP-ky a stál v uličke o šiestej ráno, keď zmena layoutu nefungovala presne tak, ako hovoril excel.',
+    about_p2:'Presne túto perspektívu prinášam do poradenstva: viem rozoznať, ktoré „rýchle víťazstvá" sú skutočné a ktoré len presunú problém na inú zmenu. Vďaka športovej minulosti tiež neznášam nechať výkon ležať na stole — ak je medzera medzi súčasným a možným stavom, chcem ju nájsť.',
+    route1:"Regionálny prevádzkový manažér — Packeta Slovakia",
+    route2:"Prevádzkový manažér — CEVA Logistics",
+    route3:"Manažér skladovej prevádzky — Lidl Slovensko",
+    route4:"Area Manager — Amazon",
+    route5:"Manažér logistiky a prevádzky — Hopi",
+    audit_tag:"01 — AUDIT",
+    audit_h2:"Štruktúrovaný audit vašej prevádzky",
+    audit_p:'Prejdem prevádzku, porovnám vaše dáta a procesy s tým, čo naozaj funguje vo veľkom, a odovzdám vám jasnú, prioritizovanú správu — žiadne vágne „odporúčania", len zistenia naviazané na konkrétne nápravné opatrenia.',
+    tierWord:"Úroveň",
+    size1:"Do 10 000 m²", size2:"10 000 – 30 000 m²", size3:"Nad 30 000 m²",
+    priceNote:"Fixná cena za celý audit",
+    audit_footnote:"Cena vychádza z prevádzkovej plochy a zahŕňa audit na mieste a písomnú správu. Cestovné náklady sú navyše, pri prevádzkach vyžadujúcich nocľah môže pribudnúť aj ubytovanie.",
+    deliverables_h3:"Čo dostanete",
+    del1:"Prehliadka vašej prevádzky, layoutu a procesov priamo na mieste",
+    del2:"Kontrola relevantných KPI, priepustnosti a dát o personálnom obsadení",
+    del3:"Písomná správa so zisteniami zoradenými podľa dopadu",
+    del4:"Konkrétne, vykonateľné nápravné kroky pre každé zistenie — nie všeobecné rady",
+    blueprint_caption:"Ilustračný pôdorys — takto vyzerá začiatok každého auditu",
+    improve_tag:"02 — ZLEPŠENIE",
+    improve_h2:"Ak chcete, aby som viedol aj samotnú nápravu",
+    improve_p:"Niektoré zistenia sa oplatí zaviesť poriadne, nielen odovzdať internému tímu, ktorý má aj tak plné ruky práce. Takýto projekt môžem viesť sám — a zaplatíte mi len vtedy, ak vám naozaj ušetrí peniaze.",
+    quote_line:"z ročných úspor, ktoré preukázateľne dosiahnem — účtované jednorazovo, až po fakte.",
+    quote_sub:"ŽIADNE PREUKÁZANÉ ÚSPORY → ŽIADNY POPLATOK. NIE DENNÁ SADZBA, NIE PAUŠÁL.",
+    step1_t:"Dohodneme si východiskový stav", step1_d:"Pred začiatkom si stanovíme čísla súčasného stavu, voči ktorým budeme zlepšenie merať.",
+    step2_t:"Vediem samotnú realizáciu", step2_d:"Spolupracujem s vaším tímom priamo na mieste, aby sa nápravné opatrenia dostali do praxe.",
+    step3_t:"Zmeriame výsledok", step3_d:"Úspory sa overujú voči dohodnutému východiskovému stavu počas dohodnutého obdobia.",
+    step4_t:"Zaplatíte 15 % z preukázaného — alebo nič", step4_d:"Ak sa čísla nepohnú, projekt vás okrem vstupného auditu nestál nič.",
+    why_tag:"Prečo je to takto nastavené",
+    why_h2:"Jeden platený krok. Jeden krok zadarmo, ak nevyjde.",
+    why_p1:"Audit má poplatok preto, lebo si vyžaduje reálny čas na mieste a vzniká pri ňom konkrétny výstup bez ohľadu na to, čo bude nasledovať — táto práca má hodnotu aj vtedy, keď na jej základe nekonáte.",
+    why_p2:"Práca na zlepšení je oceňovaná zámerne inak. Chcem byť posudzovaný podľa výsledkov, nie podľa odpracovaných hodín. Ak vediem projekt a úspory sa nedostavia, neplatíte za môj čas — toto riziko nesiem ja, nie vy.",
+    contact_eyebrow:"Začíname",
+    contact_h2:"Napíšte mi veľkosť prevádzky a čo vás na nej trápi",
+    contact_p:"Na cenovú ponuku vrátane cestovného stačí krátky email s plochou prevádzky a lokalitou.",
+    label_email:"E-mail", label_phone:"Telefón",
+    btn_email:"Napísať pre ponuku", btn_call:"Radšej zavolať",
+    footer1:"Poradenstvo pre skladové prevádzky",
+    footer2:"Sídlim na Slovensku · Audity na mieste v rámci strednej a východnej Európy",
+    mailSubject:"Dopyt na audit prevádzky",
+    mailBody:"Lokalita prevádzky:\nPribližná plocha (m²):\nČo by som chcel/-a preveriť:\n"
+  },
+  cz: {
+    nav_track:"Zkušenosti", nav_audit:"Audit", nav_improve:"Zlepšení procesů", nav_contact:"Kontakt", nav_cta:"Vyžádat nabídku",
+    hero_eyebrow:"Poradenství pro sklady a provozy",
+    hero_h1:'Najdu, co váš provoz stojí peníze — <em>a napravím to.</em>',
+    hero_lede:"Provádím audit skladových a depotových provozů, přesně určím, kde uniká efektivita, a pokud budete chtít, projekt zlepšení mohu vést i já osobně. Za tuto druhou část platíte jen tehdy, pokud vám skutečně ušetří peníze.",
+    hero_cta1:"Ceník auditu", hero_cta2:"Jak funguje provize za úspěch",
+    stat1_num:"10+ let", stat1_label:"Praxe ve skladech a depech",
+    stat2_label:"Lidí ve vedení najednou",
+    stat3_label:"Silné značky: Amazon, Lidl, CEVA, Packeta, Hopi",
+    track_h2:"Provozní zkušenosti, ne teorie",
+    track_p:"Každé doporučení, které dám, jsem si nejdřív ověřil na vlastním P&amp;L a KPI tabuli — nevyčetl jsem ho ze studie.",
+    about_p1:'Posledních deset let jsem strávil ve skladových a last-mile provozech — nejdřív na směnách, pak v depech, později v celých regionech — v e-commerce, retailovém i 3PL prostředí. Stavěl jsem KPI tabule, přepisoval SOP a stál v uličce v šest ráno, když změna layoutu nefungovala přesně tak, jak říkal excel.',
+    about_p2:'Přesně tuhle perspektivu přináším do poradenství: vím, které „rychlé výhry" jsou skutečné a které jen přesunou problém na jinou směnu. Díky sportovní minulosti taky nesnáším nechat výkon ležet na stole — pokud je mezera mezi současným a možným stavem, chci ji najít.',
+    route1:"Regionální provozní manažer — Packeta Slovakia",
+    route2:"Provozní manažer — CEVA Logistics",
+    route3:"Manažer skladového provozu — Lidl Slovensko",
+    route4:"Area Manager — Amazon",
+    route5:"Manažer logistiky a provozu — Hopi",
+    audit_tag:"01 — AUDIT",
+    audit_h2:"Strukturovaný audit vašeho provozu",
+    audit_p:'Projdu provoz, porovnám vaše data a procesy s tím, co skutečně funguje ve velkém měřítku, a předám vám jasnou, prioritizovanou zprávu — žádná vágní „doporučení", jen zjištění spojená s konkrétními nápravnými opatřeními.',
+    tierWord:"Úroveň",
+    size1:"Do 10 000 m²", size2:"10 000 – 30 000 m²", size3:"Nad 30 000 m²",
+    priceNote:"Fixní cena za celý audit",
+    audit_footnote:"Cena vychází z provozní plochy a zahrnuje audit na místě a písemnou zprávu. Cestovní náklady jsou navíc, u provozů vyžadujících nocleh může přibýt i ubytování.",
+    deliverables_h3:"Co dostanete",
+    del1:"Prohlídka vašeho provozu, layoutu a procesů přímo na místě",
+    del2:"Kontrola relevantních KPI, propustnosti a dat o personálním obsazení",
+    del3:"Písemná zpráva se zjištěními seřazenými podle dopadu",
+    del4:"Konkrétní, proveditelné nápravné kroky pro každé zjištění — ne obecné rady",
+    blueprint_caption:"Ilustrační půdorys — takhle vypadá začátek každého auditu",
+    improve_tag:"02 — ZLEPŠENÍ",
+    improve_h2:"Pokud chcete, abych vedl i samotnou nápravu",
+    improve_p:"Některá zjištění se vyplatí zavést pořádně, ne jen předat internímu týmu, který má stejně plné ruce práce. Takový projekt mohu vést sám — a zaplatíte mi jen tehdy, pokud vám skutečně ušetří peníze.",
+    quote_line:"z ročních úspor, které prokazatelně dosáhnu — účtováno jednorázově, až po faktu.",
+    quote_sub:"ŽÁDNÉ PROKÁZANÉ ÚSPORY → ŽÁDNÝ POPLATEK. NE DENNÍ SAZBA, NE PAUŠÁL.",
+    step1_t:"Dohodneme si výchozí stav", step1_d:"Před začátkem stanovíme čísla současného stavu, vůči kterým budeme zlepšení měřit.",
+    step2_t:"Vedu samotnou realizaci", step2_d:"Spolupracuji s vaším týmem přímo na místě, aby se nápravná opatření dostala do praxe.",
+    step3_t:"Změříme výsledek", step3_d:"Úspory se ověřují vůči dohodnutému výchozímu stavu během dohodnutého období.",
+    step4_t:"Zaplatíte 15 % z prokázaného — nebo nic", step4_d:"Pokud se čísla nepohnou, projekt vás kromě vstupního auditu nestál nic.",
+    why_tag:"Proč je to takto nastavené",
+    why_h2:"Jeden placený krok. Jeden krok zdarma, pokud nevyjde.",
+    why_p1:"Audit má poplatek proto, že vyžaduje reálný čas na místě a vzniká při něm konkrétní výstup bez ohledu na to, co bude následovat — tato práce má hodnotu, i když na jejím základě nejednáte.",
+    why_p2:"Práce na zlepšení je oceňována záměrně jinak. Chci být posuzován podle výsledků, ne podle odpracovaných hodin. Pokud vedu projekt a úspory se nedostaví, neplatíte za můj čas — toto riziko nesu já, ne vy.",
+    contact_eyebrow:"Začínáme",
+    contact_h2:"Napište mi velikost provozu a co vás na něm trápí",
+    contact_p:"Na cenovou nabídku včetně cestovného stačí krátký e-mail s plochou provozu a lokalitou.",
+    label_email:"E-mail", label_phone:"Telefon",
+    btn_email:"Napsat pro nabídku", btn_call:"Raději zavolat",
+    footer1:"Poradenství pro skladové provozy",
+    footer2:"Sídlím na Slovensku · Audity na místě v rámci střední a východní Evropy",
+    mailSubject:"Poptávka na audit provozu",
+    mailBody:"Lokalita provozu:\nPřibližná plocha (m²):\nCo bych chtěl/a prověřit:\n"
+  },
+  en: {
+    nav_track:"Track record", nav_audit:"Audit", nav_improve:"Improvement", nav_contact:"Contact", nav_cta:"Request a quote",
+    hero_eyebrow:"Warehouse &amp; Operations Consulting",
+    hero_h1:"Find what's costing your operation money — <em>then fix it.</em>",
+    hero_lede:"I audit warehouse and depot operations, flag exactly where efficiency is leaking, and — if you want — lead the improvement project myself. You only pay for that second part if it saves you money.",
+    hero_cta1:"See audit pricing", hero_cta2:"How the success fee works",
+    stat1_num:"10+ yrs", stat1_label:"Warehouse &amp; depot ops",
+    stat2_label:"Staff led at peak",
+    stat3_label:"Strong Brands: Amazon, Lidl, CEVA, Packeta, Hopi",
+    track_h2:"Operations experience, not theory",
+    track_p:"Every recommendation I make has been tested against my own P&amp;L and KPI board first — not read in a case study.",
+    about_p1:"I've spent the last decade inside warehouse and last-mile operations — running shifts, then depots, then whole regions — across e-commerce, retail and 3PL environments. I've built the KPI boards, rewritten the SOPs, and stood in the aisle at 6am when a layout change didn't work the way the spreadsheet said it would.",
+    about_p2:"That's the perspective I bring into a consulting engagement: I know which \"quick wins\" are real and which ones just move the problem to a different shift. My background in competitive sport also means I'm allergic to leaving performance on the table — if there's a gap between current and possible, I want to find it.",
+    route1:"Regional Operations Manager — Packeta Slovakia",
+    route2:"Operations Manager — CEVA Logistics",
+    route3:"Warehouse Operations Manager — Lidl Slovakia",
+    route4:"Area Manager — Amazon",
+    route5:"Operations Logistics Manager — Hopi",
+    audit_tag:"01 — THE AUDIT",
+    audit_h2:"A structured audit of your operation",
+    audit_p:"I walk the floor, review your data and your process against what I've seen work at scale, and hand you a clear, prioritised report — no vague \"recommendations,\" just findings tied to specific corrective actions.",
+    tierWord:"Tier",
+    size1:"Up to 10,000 m²", size2:"10,000 – 30,000 m²", size3:"Above 30,000 m²",
+    priceNote:"Fixed fee for the full audit",
+    audit_footnote:"Pricing is based on operational floor area and covers the on-site audit and written report. Travel costs are added on top, and accommodation may be added for sites that require an overnight stay.",
+    deliverables_h3:"What you get",
+    del1:"An on-site walkthrough of your operation, layout and workflow",
+    del2:"Review of relevant KPIs, throughput and staffing data",
+    del3:"A written findings report ranking issues by impact",
+    del4:"Specific, actionable corrective steps for each finding — not general advice",
+    blueprint_caption:"Illustrative site plan — every audit starts with a walk like this one",
+    improve_tag:"02 — THE IMPROVEMENT",
+    improve_h2:"If you want me to lead the fix, too",
+    improve_p:"Some findings are worth implementing properly, not just handing to an internal team already stretched thin. I can lead that project myself — and I only get paid if it actually saves you money.",
+    quote_line:"of the annual savings I prove out — charged only once, after the fact.",
+    quote_sub:"NO PROVEN SAVINGS → NO FEE. NOT A DAY RATE, NOT A RETAINER.",
+    step1_t:"We agree the baseline", step1_d:"Before starting, we fix the current-state numbers the improvement will be measured against.",
+    step2_t:"I lead the implementation", step2_d:"Working with your team on the ground to put the corrective actions into practice.",
+    step3_t:"We measure the result", step3_d:"Savings are verified against the agreed baseline over an agreed period.",
+    step4_t:"You pay 15% of what's proven — or nothing", step4_d:"If the numbers don't move, the project has cost you nothing beyond the initial audit.",
+    why_tag:"Why structured this way",
+    why_h2:"One paid step. One free-if-it-fails step.",
+    why_p1:"The audit carries a fee because it takes real time on-site and produces a concrete deliverable regardless of what happens next — that work has value whether or not you act on it.",
+    why_p2:"The improvement work is priced differently on purpose. I want to be judged on results, not hours booked. If I lead a project and the savings don't materialise, you don't pay for my time — that risk sits with me, not you.",
+    contact_eyebrow:"Get started",
+    contact_h2:"Tell me the size of the site and what's bothering you about it",
+    contact_p:"A short email with your operational floor area and location is enough to get a quote back, including travel.",
+    label_email:"Email", label_phone:"Phone",
+    btn_email:"Email for a quote", btn_call:"Call instead",
+    footer1:"Warehouse Operations Consulting",
+    footer2:"Based in Slovakia · Available for on-site audits across CEE",
+    mailSubject:"Operations audit enquiry",
+    mailBody:"Site location:\nApprox. floor area (m²):\nWhat I'd like looked at:\n"
+  }
+};
+
+const htmlLangMap = {sk:"sk", cz:"cs", en:"en"};
+
+function applyLang(lang){
+  const d = dict[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(d[key] !== undefined) el.innerHTML = d[key];
+  });
+  document.documentElement.lang = htmlLangMap[lang] || 'en';
+  document.querySelectorAll('.lang-switch button').forEach(b=>{
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+  const emailBtn = document.getElementById('emailBtn');
+  const subject = encodeURIComponent(d.mailSubject);
+  const body = encodeURIComponent(d.mailBody);
+  emailBtn.href = `mailto:lukoranda@gmail.com?subject=${subject}&body=${body}`;
+}
+
+document.querySelectorAll('.lang-switch button').forEach(btn=>{
+  btn.addEventListener('click', ()=> applyLang(btn.dataset.lang));
+});
+
+applyLang('sk');
+</script>
 </body>
 </html>
