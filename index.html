@@ -147,6 +147,9 @@
     width:173px;height:auto;
     opacity:.92;
   }
+  .hero-logo-mobile{
+    display:none;
+  }
 
   .blueprint-caption{
     font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;
@@ -287,6 +290,14 @@
 
   @media (max-width:880px){
     .hero-inner{grid-template-columns:1fr;padding-top:56px;}
+    .hero-logo{display:none;}
+    .hero-logo-mobile{
+      display:block;
+      order:-1;
+      width:140px;height:auto;
+      margin:0 auto 24px;
+      opacity:.92;
+    }
     .stat-row{grid-template-columns:repeat(3,1fr);max-width:none;}
     .hero h1{font-size:32px;}
     .about-grid,.success-block,.why .wrap,.contact-panel{grid-template-columns:1fr;}
@@ -320,6 +331,7 @@
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="wrap hero-inner">
+    <img class="hero-logo-mobile" src="images/logo-white.png" alt="Koranda Consulting">
     <div>
       <div class="eyebrow">Warehouse &amp; Operations Consulting</div>
       <h1>Find what's costing your operation money — <em>then fix it.</em></h1>
