@@ -114,11 +114,14 @@
     align-items:center;
   }
   .eyebrow{
-    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;
+    font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;
     text-transform:uppercase;color:var(--amber);
     display:flex;align-items:center;gap:9px;margin-bottom:16px;
   }
-  .eyebrow::before{content:"";width:22px;height:1px;background:var(--amber);}
+  .eyebrow::before,
+.eyebrow::after
+
+{content:"";width:22px;height:1px;background:var(--amber);}
   .hero h1{
     font-size:44px;line-height:1.08;font-weight:700;color:#fff;
   }
@@ -158,7 +161,7 @@
 
   /* ---------- SECTION SCAFFOLDING ---------- */
   section{padding:76px 0;}
-  .section-head{max-width:640px;margin-bottom:44px;}
+  .section-head{max-width:640px;margin-bottom:12px;}
   .section-head h2{font-size:30px;font-weight:700;}
   .section-head p{color:var(--text-soft);margin-top:12px;font-size:15.5px;}
 
@@ -219,7 +222,7 @@
   .price-amount{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:28px;color:var(--ink);}
   .price-amount span{font-size:14px;font-weight:500;color:var(--text-soft);}
   .price-note{font-size:12px;color:var(--text-soft);}
-  .audit-footnote{
+  .assessment-footnote{
     margin-top:18px;font-size:13.5px;color:var(--text-soft);
     border-left:3px solid var(--text-soft);padding-left:14px;
   }
@@ -289,7 +292,7 @@
   footer .footer-logo{height:22px;width:auto;opacity:.82;}
 
   @media (max-width:880px){
-    .hero-inner{grid-template-columns:1fr;padding-top:1px;}
+    .hero-inner{grid-template-columns:1fr;padding-top:-3px;}
     .hero-logo{display:none;}
     .hero-logo-mobile{
       display:block;
@@ -313,7 +316,7 @@
     <div class="nav-brand"><span class="dot"></span>LUKAS KORANDA — OPS CONSULTING</div>
     <nav class="nav-links">
       <a href="#track-record">Track record</a>
-      <a href="#audit">Audit</a>
+      <a href="#assessment">assessment</a>
       <a href="#improvement">Improvement</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -335,9 +338,9 @@
     <div>
       <div class="eyebrow">Warehouse &amp; Operations Consulting</div>
       <h1>Find what's costing your operation money — <em>then fix it.</em></h1>
-      <p class="lede">I audit warehouse and depot operations, flag exactly where efficiency is leaking, and — if you want — lead the improvement project myself. You only pay for that second part if it saves you money.</p>
+      <p class="lede">I assess warehouse and depot operations, flag exactly where efficiency is leaking, and -- if you want -- lead the improvement project myself. You only pay for that second part if it saves you money.</p>
       <div class="hero-ctas">
-        <a class="btn" href="#audit">See audit pricing</a>
+        <a class="btn" href="#assessment">See assessment pricing</a>
         <a class="btn ghost" href="#improvement">How the success fee works</a>
       </div>
       <div class="stat-row">
@@ -394,7 +397,7 @@
         <line x1="12" y1="340" x2="24" y2="340" stroke="#cfe0ec" stroke-width="1"/>
         <text x="10" y="192" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#cfe0ec" transform="rotate(-90 10 192)">98 m</text>
       </svg>
-      <div class="blueprint-caption">Illustrative site plan — every audit starts with a walk like this one</div>
+      <div class="blueprint-caption">Every assessment starts with a walkthrough of the shop floor.</div>
     </div>
   </div>
 </section>
@@ -402,13 +405,13 @@
 <section id="track-record">
   <div class="wrap">
     <div class="section-head">
-      <h2>Operations experience, not theory</h2>
-      <p>Every recommendation I make has been tested against my own P&amp;L and KPI board first — not read in a case study.</p>
+      <h2>Real operations experience, not just theory</h2>
+      <p>Every recommendation I make has been tested against real P&amp;L and KPI board first, not just read in a case study. I have proven experience driving real savings and optimization within top-tier companies on the market.</p>
     </div>
     <div class="about-grid">
       <div>
-        <p>I've spent the last decade inside warehouse and last-mile operations — running shifts, then depots, then whole regions — across e-commerce, retail and 3PL environments. I've built the KPI boards, rewritten the SOPs, and stood in the aisle at 6am when a layout change didn't work the way the spreadsheet said it would.</p>
-        <p>That's the perspective I bring into a consulting engagement: I know which "quick wins" are real and which ones just move the problem to a different shift. My background in competitive sport also means I'm allergic to leaving performance on the table — if there's a gap between current and possible, I want to find it.</p>
+        <p>I've spent the last decade inside warehouse and last-mile operations: running shifts, then depots, then whole regions across e-commerce, retail, and 3PL environments. I've built the KPI boards, rewritten the SOPs, led successful projects, and stood in the aisle at 5 am or 11 pm when a layout change didn't work the way the spreadsheet said it would.</p>
+        <p>That's the perspective I bring into a consulting engagement: I know which "quick wins" are real and which ones just move the problem to a different shift. My background in competitive sport also means I'm driven to never leave performance on the table, if there's a gap between current and possible, I want to find it.</p>
       </div>
       <div class="route">
         <div class="route-item">
@@ -433,53 +436,53 @@
 
 <div class="dim-divider">
   <div class="wrap">
-    <span class="tag mono">01 — THE AUDIT</span>
+    <span class="tag mono">01 — THE assessment</span>
     <div class="dim-line"></div>
   </div>
 </div>
 
-<section id="audit">
+<section id="assessment">
   <div class="wrap">
     <div class="section-head">
-      <h2>A structured audit of your operation</h2>
-      <p>I walk the floor, review your data and your process against what I've seen work at scale, and hand you a clear, prioritised report — no vague "recommendations," just findings tied to specific corrective actions.</p>
+      <h2>A structured assessment of your operation</h2>
+      <p>I walk the floor, review your data and processes against what I've seen work at scale, and hand you a clear, prioritized report, no vague "recommendations," just findings tied to specific corrective actions. My assessment is suitable for operations of any size. It’s not just about heavy automation or huge investments; sometimes even a simple solution can unlock massive success.</p>
     </div>
 
     <div class="price-cards">
       <div class="price-card">
         <div class="price-tier"><span>Tier</span> 1</div>
         <div class="price-size">Up to 10,000 m²</div>
-        <div class="price-amount">€1,900</div>
-        <div class="price-note">Fixed fee for the full audit</div>
+        <div class="price-amount">€2,000</div>
+        <div class="price-note">Fixed fee for the full assessment</div>
       </div>
       <div class="price-card mid">
         <div class="price-tier"><span>Tier</span> 2</div>
         <div class="price-size">10,000 – 30,000 m²</div>
         <div class="price-amount">€2,500</div>
-        <div class="price-note">Fixed fee for the full audit</div>
+        <div class="price-note">Fixed fee for the full assessment</div>
       </div>
       <div class="price-card">
         <div class="price-tier"><span>Tier</span> 3</div>
         <div class="price-size">30,000 – 50,000 m²</div>
         <div class="price-amount">€3,500</div>
-        <div class="price-note">Fixed fee for the full audit</div>
+        <div class="price-note">Fixed fee for the full assessment</div>
       </div>
       <div class="price-card">
         <div class="price-tier"><span>Tier</span> 4</div>
         <div class="price-size">50,000 – 75,000 m²</div>
-        <div class="price-amount">€4,250</div>
-        <div class="price-note">Fixed fee for the full audit</div>
+        <div class="price-amount">€4,500</div>
+        <div class="price-note">Fixed fee for the full assessment</div>
       </div>
       <div class="price-card">
         <div class="price-tier"><span>Tier</span> 5</div>
         <div class="price-size">Above 75,000 m²</div>
-        <div class="price-amount">€5,000</div>
-        <div class="price-note">Fixed fee for the full audit</div>
+        <div class="price-amount">€5,500</div>
+        <div class="price-note">Fixed fee for the full assessment</div>
       </div>
     </div>
 
-    <div class="audit-footnote">
-      Pricing is based on operational floor area and covers the on-site audit and written report. Travel costs are added on top, and accommodation may be added for sites that require an overnight stay.
+    <div class="assessment-footnote">
+      Pricing is based on operational floor area and covers the on-site assessment and written report. Travel costs are added on top, and accommodation may be added for sites that require an overnight stay.
     </div>
 
     <div class="deliverable-list">
@@ -541,7 +544,7 @@
           <div class="step-num">4</div>
           <div>
             <div class="step-title">You pay 15% of what's proven — or nothing</div>
-            <div class="step-desc">If the numbers don't move, the project has cost you nothing beyond the initial audit.</div>
+            <div class="step-desc">If the numbers don't move, the project has cost you nothing beyond the initial assessment.</div>
           </div>
         </div>
       </div>
@@ -556,7 +559,7 @@
       <h2>One paid step. One free-if-it-fails step.</h2>
     </div>
     <div class="why-col">
-      <p>The audit carries a fee because it takes real time on-site and produces a concrete deliverable regardless of what happens next — that work has value whether or not you act on it.</p>
+      <p>The assessment carries a fee because it takes real time on-site and produces a concrete deliverable regardless of what happens next — that work has value whether or not you act on it.</p>
       <p>The improvement work is priced differently on purpose. I want to be judged on results, not hours booked. If I lead a project and the savings don't materialise, you don't pay for my time — that risk sits with me, not you.</p>
     </div>
   </div>
@@ -580,7 +583,7 @@
         </div>
       </div>
       <div class="contact-cta">
-        <a class="btn dark" href="mailto:lukas@korandaconsulting.eu?subject=Operations%20audit%20enquiry&body=Site%20location%3A%0AApprox.%20floor%20area%20(m%C2%B2)%3A%0AWhat%20I'd%20like%20looked%20at%3A%0A">Email for a quote</a>
+        <a class="btn dark" href="mailto:lukas@korandaconsulting.eu?subject=Operations%20assessment%20enquiry&body=Site%20location%3A%0AApprox.%20floor%20area%20(m%C2%B2)%3A%0AWhat%20I'd%20like%20looked%20at%3A%0A">Email for a quote</a>
         <a class="btn ghost" style="border-color:#d9d3c4;color:var(--ink);" href="tel:+421915703402">Call instead</a>
       </div>
     </div>
@@ -593,7 +596,7 @@
       <img class="footer-logo" src="images/logo.png" alt="Koranda Consulting">
       <div class="mono">© <span id="yr"></span> Lukas Koranda — Warehouse Operations Consulting</div>
     </div>
-    <div class="mono">Based in Slovakia · Available for on-site audits across CEE</div>
+    <div class="mono">Based in Slovakia · Available for on-site assessments across CEE</div>
   </div>
 </footer>
 
